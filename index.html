@@ -1,0 +1,88 @@
+<!-- 
+Задание следующее: написать html-страничку расчёта ежемесячного платежа по аннуитетному кредиту. Входящие данные - сумма, первоначальный взнос и срок.
+Оформить "красиво" на свой вкус. Желательно для входящих данных разные элементы (input разных типов, окно, ползунок или еще чего-то).
+
+
+
+https://hi-tech.mail.ru/news/oon-prizyvaet-povsemestno-zapretit-plastikovuyu-upakovku/
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/myscript.js"></script>
+    <title>Loan Calculator</title>
+</head>
+<body>
+    <main class="content">
+        <header class="header">
+            <a class='logo' href="/"><img src="/images/logo.png" alt=""></a>
+        </header>
+        <section class="wrapper">
+            <div class="calc">
+                <p class="calc__title">Loan calculation</p>
+                <div class="calc__params">
+                    <div class="params-block">
+                        <p class="params-block__title">Initial payment</p>
+                        <input id="initial_pay_input" class="data-field" type="text" maxlength="10" value="0">
+                        <span id="initial_pay_symb" class="symbol">₽</span>
+                        <input id="initial_pay_range" class="range" type="range" min="0" max="5000000" step="50000" value="0">
+                    </div>
+                    <div class="params-block">
+                        <p class="params-block__title">Loan amount</p>
+                        <input id="loan_amount_input" class="data-field" type="text" maxlength="10" value="1500000">
+                        <select id="currency_select" class="data-field data-field--curr-choise">
+                            <option>RUB</option>
+                            <option>USD</option>
+                            <option>EUR</option>
+                            <option>GBP</option>
+                        </select>
+                        <input id="loan_amount_range" class="range" type="range" min="50000" max="5000000" step="50000" value="1500000">
+                    </div>
+                    <div class="params-block">
+                        <p class="params-block__title">Interest rate (per year)</p>
+                        <input id="rate_input" class="data-field" type="text" maxlength="5" value="12.5">
+                        <span class="symbol">%</span>
+                        <input id="rate_range" class="range" type="range" min="5" max="30.00" step="0.1" value="12.50">
+                    </div>
+                    <div class="params-block">
+                        <p class="params-block__title">Loan period (months)</p>
+                        <input id="period_input" class="data-field" type="text" maxlength="3" value="240">
+                        <span class="symbol">mos.</span>
+                        <input id="period_range" class="range" type="range" min="1" max="360" value="240">
+                    </div>
+                    <div class="params-block">
+                        <p class="params-block__title">Date of the first payment </p>
+                        <input id="first_pay_date" class="data-field" type="text" readonly>
+                    </div>
+                </div>
+                <div class="calc__result">
+                    <div class="result-block">
+                        <p class="result-block__title">Monthly payment</p>
+                        <p id="monthly_payment" class="result-block__info">10000 ₽</p>
+                    </div>
+                    <div class="result-block">
+                        <p class="result-block__title">Overpayment</p>
+                        <p id="overpayment" class="result-block__info">50000 ₽</p>
+                    </div>
+                    <div class="result-block">
+                        <p class="result-block__title">Total cost of loan</p>
+                        <p id="total_cost" class="result-block__info">100000 ₽</p>
+                    </div>
+                </div>
+            </div>
+            <div class="buffer"></div>
+            <input class="button" type="button" value="График платежей">
+        </section>
+        <footer class="footer">
+            <p>Copyright © 2018</p>
+        </footer>
+    </main>
+</body>
+</html>
